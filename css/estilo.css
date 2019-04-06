@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06-04-2019, 12:39:48
+    Author     : Fabian Saldaño
+*/
+
+a.submenu{
+    padding: 0 0 0 40px;
+    display: none;
+}
+
+#contenedor{
+    width:100%;
+}
+#titulo{
+    width:100%;
+    height: 80px;
+    float: left;
+    align-content: center;
+    background: red;
+}
+#menu{
+    width: 30%;
+    height: 500px;
+    float: left;
+    background: green;
+}
+
+#contenido{
+   width: 70%;
+   height: 500px; 
+   float: left;
+   background: yellow;
+}
+
