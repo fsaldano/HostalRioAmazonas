@@ -9,22 +9,20 @@
 /**
  * Description of recepcion
  *
- * @author Fabian Saldaño
+ * @author Casa
  */
 class recepcion {
      private $name;
-     private $email;
-     private $source;
+     private $email;     
      private $region;       /*(Europe, USA, Asia, Africa u South America), */
      private $TipoLenguaje; /*Ingles Language(Si o No), */
      private $DateCheckIn;  /*(fecha de ingreso), */
      private $DateCheckout; /*(fecha salida)*/
      
      
-     function __construct($name, $email, $source, $region, $TipoLenguaje, $DateCheckIn, $DateCheckout) {
+     function __construct($name, $email, $region, $TipoLenguaje, $DateCheckIn, $DateCheckout) {
          $this->name = $name;
-         $this->email = $email;
-         $this->source = $source;
+         $this->email = $email;         
          $this->region = $region;
          $this->TipoLenguaje = $TipoLenguaje;
          $this->DateCheckIn = $DateCheckIn;
@@ -37,10 +35,6 @@ class recepcion {
 
      function getEmail() {
          return $this->email;
-     }
-
-     function getSource() {
-         return $this->source;
      }
 
      function getRegion() {
@@ -67,10 +61,6 @@ class recepcion {
          $this->email = $email;
      }
 
-     function setSource($source) {
-         $this->source = $source;
-     }
-
      function setRegion($region) {
          $this->region = $region;
      }
@@ -86,4 +76,6 @@ class recepcion {
      function setDateCheckout($DateCheckout) {
          $this->DateCheckout = $DateCheckout;
      }
+
+
 }

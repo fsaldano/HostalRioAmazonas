@@ -1,6 +1,14 @@
 <?php
-include('../lib/constantes.php'); 
+include('../lib/recepcion.php');
+include('../lib/constantes.php');
+
+if (isset($_SESSION["saldano"])){
+    $arreReservation=$_SESSION["saldano"];
+}else{
+    $arreReservation="";
+}
 ?>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -22,14 +30,51 @@ and open the template in the editor.
        <div id="wrapper">
             <header>
                 <div class='define'>
-                    <h1>Titulo de la página</h1>
+                    <h1>LIST RESERVATION</h1>
                 </div>
             </header>
         
             <section>
                 <div class="contenedor">
-                    <H1>UNDER CONSTRUCTION</H1> 
-                    <div<p><a href="<?=URLBASE;?>">Volver</a></p><br> <input type="button" value="" />
+                    
+                    <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Region</th>
+                                    <th>Languaje</th>
+                                    <th>Date Chekin</th>
+                                    <th>Date Chekout</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                if (is_array($arreReservation)){
+                                foreach ($arreReservation as $key => $Reseption) {
+                                    
+                                ?>
+                                <tr>
+                                    <td><?=$key +1;?></td>
+                                    <td><?=$Reseption->getName();?></td>
+                                    <td><?=$Reseption->getEmail();?></td>
+                                    <td><?=$Reseption->getRegion();?></td>
+                                    <td><?=$Reseption->getTipoLenguaje();?></td>
+                                    <td><?=$Reseption->getDateCheckIn();?></td>
+                                    <td><?=$Reseption->getDateCheckout();?></td>
+                                    <td><input type="button" value="Eliminar" onclick="feliminar(<?=$Reseption->getName();?>);"> <input type="button" value="Editar"></td>
+                                </tr>
+                                <?php }} ?>
+                                
+                            </tbody>
+                        </table>
+                        
+                        <form id="formelimina" action="../lib/eliminarecepcion.php" method="post">
+                            <input type="hidden" value="" name="Eliminar_nombre" id="Eliminar_nombre">
+                        </form> 
+                    
+                        <div<p><a href="<?=URLBASE;?>">Volver</a></p><br> <input type="button" value="" />
                 </div>
                 
                 
@@ -42,4 +87,17 @@ and open the template in the editor.
             </div>
         </footer>        
     </body>
+    <script>
+        function feliminar(nombre){
+            resp=confirm("Esta seguro de eliminar");
+            if(resp){
+                $("#Eliminar_nombre").val(nombre);
+                $("#formelimina").submit();
+             }
+        }
+        $("#eliminar").click(function(){
+            $.post( "../lib/eliminarecepcion.php", { Eliminar_nombre:$("#elinombre").val() });
+        });
+    </script>
 </html>
+

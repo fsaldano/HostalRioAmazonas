@@ -1,5 +1,6 @@
 <?php
-include('../lib/constantes.php'); 
+include('../lib/recepcion.php');
+include('../lib/constantes.php');
 ?>
 <!DOCTYPE html>
 <!--
@@ -26,9 +27,48 @@ and open the template in the editor.
             </header>
         
             <section>
-                <div class="contenedor">
-                    <H1> UNDER CONSTRUCTION</H1> 
-                    <div<p><a href="<?=URLBASE;?>">Volver</a></p><br> <input type="button" value="" />
+                <div class="contenedorRes">
+
+                    <form class="fa" action="../lib/agregarrecepcion.php" method="POST"> 
+                        <div class="form-group">
+                            <label for="lblname">Name</label>   
+                            <input id="Name" class="form-control" name="Name" type="text" placeholder="Name" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="lblemail">Email</label>   
+                            <input id="Email" class="form-control" name="Email" type="email" placeholder="Email" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="lblregion">Region</label> 
+                            <input class="form-control" list="Region" name="Region"/>
+                        <datalist id="Region">
+                            <option value="Europe">Europe</option>
+                            <option value="USA">USA</option>
+                            <option value="Asia">Asia</option> 
+                            <option value="Africa">Africa</option> 
+                            <option value="South America">South America</option> 
+                        </datalist>
+                        </div>
+                        <div class="form-group">
+                            <label for="lbltipolenguaje">Lenguaje</label> 
+                            <input class="form-control" list="TipoLenguaje" name="TipoLenguaje"/>
+                        <datalist id="TipoLenguaje">
+                            <option value="Ingles">Ingles</option>
+                            <option value="Espanol">Español</option>                            
+                        </datalist> 
+                        </div>                       
+                        <div class="form-group">
+                            <label for="lbldatecheckin">Date CheckIn</label>   
+                            <input id="Name" class="form-control" name="DateCheckIn" type="date" placeholder="DateCheckIn" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="lbldatecheckout">Date CheckIn</label>   
+                            <input id="Name" class="form-control" name="DateCheckout" type="date" placeholder="DateCheckout" required="">
+                        </div>                       
+                        <br>
+                        <input type="submit" class="btn btn-primary" value="Enviar">                     
+                    </form>
+                    <div<p><a href="<?=URLBASE;?>" class="btn btn-primary">Volver</a></p><br> <input  type="button" value="" />
                 </div>
                 
                 
@@ -36,8 +76,7 @@ and open the template in the editor.
         </div>
         <footer>
             <div class='define'>
-                <p>Antonio Varas #666, Fono de contacto: 000000000</p><br>
-                
+                <p>Antonio Varas #666, Fono de contacto: 000000000</p><br>                
             </div>
         </footer>      
     </body>
